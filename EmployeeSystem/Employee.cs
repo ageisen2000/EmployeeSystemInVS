@@ -13,7 +13,7 @@ namespace EmployeeSystem
         protected int employeeNumber;
         protected double monthlyPay;
         protected double yearlyPay;
-        /*testing a change*/
+
         public abstract double calculateMonthlyPay();
         public abstract void calculateYearlyPay();
         public string FirstName { get { return firstName; } set { firstName = value; } }
