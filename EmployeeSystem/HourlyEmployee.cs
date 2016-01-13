@@ -12,7 +12,11 @@ namespace EmployeeSystem
         protected double hours = 0;
 
         public double DollarsPerHour { get { return dollarsperhour; }  set { dollarsperhour = value; } }
-        public double Hours { get { return hours; } set { hours = value; } }
+        public double Hours {
+            get { return hours; }
+            set { hours = value; }
+        }
+
         public HourlyEmployee(string fn, string ln, int empN, double dph, double hr) : base(fn, ln, empN)
         {
             FirstName = fn;
@@ -21,10 +25,12 @@ namespace EmployeeSystem
             DollarsPerHour = dph;
             Hours = hr;
         }
+
         public override double calculateMonthlyPay()
         {
             return DollarsPerHour * hours;
         }
+
         public bool Equals(Employee e, Employee f)
         {
             if(e.EmployeeNumber == f.EmployeeNumber)
@@ -33,10 +39,13 @@ namespace EmployeeSystem
             }
             return false;
         }
-        public override void calculateYearlyPay()
+
+        public override double calculateYearlyPay()
         {
-            throw new NotImplementedException();
+            yearlyPay = calculateMonthlyPay() * 12;
+            return yearlyPay;
         }
+
         public override string ToString()
         {
             String output;

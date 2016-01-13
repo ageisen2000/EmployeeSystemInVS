@@ -8,6 +8,7 @@ namespace EmployeeSystem
 {
     class Company
     {
+        /* list of employees, otherwise known as the company */
         protected List<Employee> company = new List<Employee>();
 
         public Company()
@@ -15,10 +16,14 @@ namespace EmployeeSystem
             /* do nothing here, however; could initialize a file to write to */
             /* or take a file as an argument to build a company from */
         }
+
+        /* adds an employee to the company */
         public void addEmployee(Employee e)
         {
             company.Add(e);
         }
+
+        /* prints out the hourly employees in the company list */
         public void printHourly()
         {
             Employee t = new HourlyEmployee("", "", 0, 0, 0);
@@ -35,6 +40,7 @@ namespace EmployeeSystem
                 }
             }
         }
+        /* prints out the salary employees in the company list */
         public void printSalary()
         {
             /* print out all the salary employees */
@@ -51,6 +57,12 @@ namespace EmployeeSystem
                     Console.WriteLine(s);
                 }
             }
+        }
+        public void printAll()
+        {
+            printHourly();
+            Console.WriteLine();
+            printSalary();
         }
     }
 }

@@ -8,21 +8,29 @@ namespace EmployeeSystem
 {
     class SalaryEmployee : Employee
     {
+        /*protected salary*/
         protected double sal; 
-        private double Salary { get { return sal; } set { sal = value; } }
-
+        /* getter and setter for the salary */
+        private double Salary {
+            get { return sal; }
+            set { sal = value; }
+        }
+        /* SalaryEmployee constructor */
         public SalaryEmployee(string fn, string ln, int empN, double sala):base(fn,ln,empN)
-        {
+        {            
             FirstName = fn;
             LastName = ln;
             EmployeeNumber = empN;
             Salary = sala;
         }
-      
+
+        /* calculates monthly pay for the Salary employee */
         public override double calculateMonthlyPay()
         {
             return Salary / 12;
         }
+
+        /* determines whether two employee objects are equal */
         public bool Equal(Employee e, Employee f)
         {
             if ((e.EmployeeNumber == f.EmployeeNumber) && (e.GetType() == f.GetType())) {
@@ -30,11 +38,16 @@ namespace EmployeeSystem
             }
             return false;
         }
-        public override void calculateYearlyPay()
+
+        /* calculates the yearly pay for the salary employee
+           this is just the salary of the employee            */
+        public override double calculateYearlyPay()
         {
-            throw new NotImplementedException();
+            yearlyPay = Salary;
+            return yearlyPay;
         }
 
+        /* toString Override for the SalaryEmpoyee object */
         public override string ToString()
         {
             String output;
