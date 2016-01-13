@@ -15,7 +15,7 @@ namespace EmployeeSystem
         protected double yearlyPay;
 
         public abstract double calculateMonthlyPay();
-        public abstract void calculateYearlyPay();
+        public abstract double calculateYearlyPay();
         public string FirstName { get { return firstName; } set { firstName = value; } }
         public string LastName { get { return lastName; } set { lastName = value; } }
         public int EmployeeNumber { get { return employeeNumber; } set { employeeNumber = value; } }
