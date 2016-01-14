@@ -18,14 +18,19 @@ namespace EmployeeSystem
             /* print em out */
             company.printAll();
             Pause();
-        } 
+        }
 
+        /* do this so visual studio doesnt automatically close */
         static void Pause()
         {
-            /* do this so visual studio doesnt automatically close */
             Console.Write("\nPress enter to close...");
             Console.Read();
         }
+
+        /* 
+           Add a random hourly employee, takes a number of 
+           employees to add, as well as the company list 
+        */
         static void AddRandomHourly(int count, Company company)
         {
             Random r = new Random();
@@ -55,6 +60,10 @@ namespace EmployeeSystem
             }
         }
 
+        /* 
+            Add a random salary employee, takes a number of 
+            employees to add, as well as the company list 
+        */
         static void AddRandomSalary(int count, Company company)
         {
             Employee e;
