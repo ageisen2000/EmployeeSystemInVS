@@ -20,10 +20,32 @@ namespace EmployeeSystem
         public abstract double calculateYearlyPay();
 
         /* getters and setters */
-        public string FirstName { get { return firstName; } set { firstName = value; } }
-        public string LastName { get { return lastName; } set { lastName = value; } }
-        public int EmployeeNumber { get { return employeeNumber; } set { employeeNumber = value; } }
-
+        public string FirstName {
+            get { return firstName; }
+            set {
+                if (value.Length > 15)
+                {
+                    Console.WriteLine("Invalid First Name. Too long");
+                    Console.WriteLine("Defaulting to \"Invalid\"");
+                    firstName = "invalid";
+                }else if ( value.Length <= 0)
+                {
+                    Console.WriteLine("Invalid Name. Defaulting to \"Invalid\"");
+                    firstName = "Invalid";
+                }
+                firstName = value;
+            }
+        }
+        public string LastName {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+        public int EmployeeNumber {
+            get { return employeeNumber;
+            }
+            set { employeeNumber = value; }
+        }
+            
         /* Employee constructor */
         public Employee(string fn, string ln, int empNum)
         {

@@ -11,6 +11,7 @@ namespace EmployeeSystem
         /*protected salary*/
         protected double sal; 
         /* getter and setter for the salary */
+        /* TODO: Data validation */
         private double Salary {
             get { return sal; }
             set { sal = value; }
@@ -31,6 +32,7 @@ namespace EmployeeSystem
         }
 
         /* determines whether two employee objects are equal */
+        /* TODO: revisit this                                */
         public bool Equal(Employee e, Employee f)
         {
             if ((e.EmployeeNumber == f.EmployeeNumber) && (e.GetType() == f.GetType())) {

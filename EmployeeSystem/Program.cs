@@ -10,19 +10,38 @@ namespace EmployeeSystem
     {
         static void Main(string[] args)
         {
-            /* instantiate an employee object */
-            Employee e;
+            Company company = new Company();
+
+            AddRandomHourly(5, company);
+            AddRandomSalary(5, company);
+
+            /* print em out */
+            company.printAll();
+            Pause();
+        } 
+
+        static void Pause()
+        {
+            /* do this so visual studio doesnt automatically close */
+            Console.Write("\nPress enter to close...");
+            Console.Read();
+        }
+        static void AddRandomHourly(int count, Company company)
+        {
             Random r = new Random();
+            Employee e;
+
             /* set some values for creating the employees */
             double between;
             double high = 999999;
             double low = 100000;
-            Company company = new Company();
+
             /* Add a bunch of hourly employees to the company list*/
             double hours;
             double moneyPerHour;
+
             /* loop to add them */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < count; i++)
             {
                 /* these values are only used for the constructor
                  * and are random every time                        */
@@ -34,27 +53,26 @@ namespace EmployeeSystem
                 /* this adds employee to the company */
                 company.addEmployee(e);
             }
-            /* add a bunch of Salary Employees to the company list */
+        }
 
+        static void AddRandomSalary(int count, Company company)
+        {
+            Employee e;
+            Random r = new Random();
+            /* set some values for creating the employees */
             double salary;
+            double between;
+            double high = 999999;
+            double low = 100000;
 
             /* loop to add them */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < count; i++)
             {
                 salary = ((40000 + i) * r.NextDouble());
                 between = (r.NextDouble() * (high - low)) + low;
                 e = new SalaryEmployee("FN" + i, "LN" + i, (int)between, salary);
                 company.addEmployee(e);
             }
-
-            /* print em out */
-            //company.printSalary();
-            //company.printHourly();
-            company.printAll();
-
-            /* do this so visual studio doesnt automatically close */
-            Console.Write("\nPress enter to close...");
-            Console.Read();
-        } 
+        }
     }
 }

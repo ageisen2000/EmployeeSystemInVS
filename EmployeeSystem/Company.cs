@@ -26,38 +26,34 @@ namespace EmployeeSystem
         /* prints out the hourly employees in the company list */
         public void printHourly()
         {
-            Employee t = new HourlyEmployee("", "", 0, 0, 0);
-
-            /* I want to print out all the Hourly Employees here */
+            System.Type type = typeof(HourlyEmployee);
             Console.WriteLine();
             Console.WriteLine("Hourly Employees");
             Console.WriteLine("--------------------------------------------------");
             foreach (Employee h in company)
             {
-                if (h.GetType() == t.GetType())
+                if (h.GetType() == type)
                 {
                     Console.WriteLine(h);
                 }
             }
         }
+
         /* prints out the salary employees in the company list */
         public void printSalary()
         {
-            /* print out all the salary employees */
+            System.Type type = typeof(SalaryEmployee);
             Console.WriteLine("Salary Employees");
             Console.WriteLine("--------------------------------------------------");
-
-            /* init an employee to get a class for compare */
-            Employee t = new SalaryEmployee("", "", 0, 0);
-            /* print them */
             foreach (Employee s in company)
             {
-                if (s.GetType() == t.GetType())
+                if (s.GetType() == type)
                 {
                     Console.WriteLine(s);
                 }
             }
         }
+
         public void printAll()
         {
             printHourly();
