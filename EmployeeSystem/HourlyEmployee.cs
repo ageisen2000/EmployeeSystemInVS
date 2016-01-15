@@ -49,8 +49,8 @@ namespace EmployeeSystem
         public override string ToString()
         {
             String output;
-            output = "Hourly Employee: " + employeeNumber + " " + "Name: " + 
-                     firstName + " " + lastName + " Pay:    $" + calculateMonthlyPay();
+            output = "Hourly Employee: " + employeeNumber + "\t" + "Name: " + 
+                     firstName + " " + lastName + " Pay: $" + calculateMonthlyPay();
             return output;
         }
     }

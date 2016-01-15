@@ -25,14 +25,14 @@ namespace EmployeeSystem
             Salary = sala;
         }
 
-        /* calculates monthly pay for the Salary employee */
+        /* calculates monthly pay for the Salary employee       */
         public override double calculateMonthlyPay()
         {
             return Salary / 12;
         }
 
-        /* determines whether two employee objects are equal */
-        /* TODO: revisit this                                */
+        /* determines whether two employee objects are equal    */
+        /* TODO: revisit this                                   */
         public bool Equal(Employee e, Employee f)
         {
             if ((e.EmployeeNumber == f.EmployeeNumber) && (e.GetType() == f.GetType())) {
@@ -42,18 +42,18 @@ namespace EmployeeSystem
         }
 
         /* calculates the yearly pay for the salary employee
-           this is just the salary of the employee            */
+           this is just the salary of the employee              */
         public override double calculateYearlyPay()
         {
             yearlyPay = Salary;
             return yearlyPay;
         }
 
-        /* toString Override for the SalaryEmpoyee object */
+        /* toString Override for the SalaryEmpoyee object       */
         public override string ToString()
         {
             String output;
-            output = "Salary Employee: " + employeeNumber + " " + "Name: " + 
+            output = "Salary Employee: " + employeeNumber + "\t" + "Name: " + 
                 firstName + " " + lastName + " Salary: $" + calculateMonthlyPay();
             return output;
         }
