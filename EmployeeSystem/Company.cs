@@ -43,6 +43,7 @@ namespace EmployeeSystem
         public void printSalary()
         {
             System.Type type = typeof(SalaryEmployee);
+            Console.WriteLine();
             Console.WriteLine("Salary Employees");
             Console.WriteLine("--------------------------------------------------");
             foreach (Employee s in company)
