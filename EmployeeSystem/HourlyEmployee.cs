@@ -11,10 +11,22 @@ namespace EmployeeSystem
         protected double dollarsperhour = 0;
         protected double hours = 0;
 
-        public double DollarsPerHour { get { return dollarsperhour; }  set { dollarsperhour = value; } }
+        /* TODO Data Validation */
+        public double DollarsPerHour {
+            get { return dollarsperhour;
+            }  set {
+                dollarsperhour = value;
+            }
+        }
+
+        /* TODO data validation */
         public double Hours {
-            get { return hours; }
-            set { hours = value; }
+            get {
+                return hours;
+            }
+            set {
+                hours = value;
+            }
         }
 
         public HourlyEmployee(string fn, string ln, int empN, double dph, double hr) : base(fn, ln, empN)
@@ -29,15 +41,6 @@ namespace EmployeeSystem
         public override double calculateMonthlyPay()
         {
             return DollarsPerHour * hours;
-        }
-
-        public bool Equals(Employee e, Employee f)
-        {
-            if(e.EmployeeNumber == f.EmployeeNumber)
-            {
-                return true;
-            }
-            return false;
         }
 
         public override double calculateYearlyPay()

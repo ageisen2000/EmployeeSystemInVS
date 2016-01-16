@@ -21,7 +21,9 @@ namespace EmployeeSystem
 
         /* getters and setters */
         public string FirstName {
-            get { return firstName; }
+            get {
+                return firstName;
+            }
             set {
                 if (value.Length > 15)
                 {
@@ -36,14 +38,23 @@ namespace EmployeeSystem
                 firstName = value;
             }
         }
+
         public string LastName {
-            get { return lastName; }
-            set { lastName = value; }
-        }
-        public int EmployeeNumber {
-            get { return employeeNumber;
+            get {
+                return lastName;
             }
-            set { employeeNumber = value; }
+            set {
+                lastName = value;
+            }
+        }
+
+        public int EmployeeNumber {
+            get {
+                return employeeNumber;
+            }
+            set {
+                employeeNumber = value;
+            }
         }
             
         /* Employee constructor */
@@ -53,6 +64,17 @@ namespace EmployeeSystem
             LastName = ln;
             EmployeeNumber = empNum;
         }
+
+        /* TODO re-do */
+        public bool Equals(Employee e, Employee f)
+        {
+            if (e.EmployeeNumber == f.EmployeeNumber)
+            {
+                return true;
+            }
+            return false;
+        }
+
         /* I needed to override this for the Equal method
          * TODO revisit this                               */
         public override int GetHashCode()
