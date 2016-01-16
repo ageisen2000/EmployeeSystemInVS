@@ -10,6 +10,7 @@ namespace EmployeeSystem
     {
         static void Main(string[] args)
         {
+            /* do the program */
             Company company = new Company();
             doIt(company);
 
@@ -21,12 +22,13 @@ namespace EmployeeSystem
 
         static void doIt(Company company)
         {
+            /* Some variables */
             String input;
             int choice = 0;
             while (choice != 9) 
             {
+                /* Print the welcome message */
                 printWelcome();
-
                 try
                 {
                     /* Going to need some error handling here */
@@ -53,11 +55,11 @@ namespace EmployeeSystem
                             break;
                         case 6:
                             /* Adds 5 Random Hourly Employees */
-                            AddRandomHourly(5, company);
+                            AddRandomHourly(500000, company);
                             break;
                         case 7:
                             /* Adds 5 Random Salary Employees */
-                            AddRandomSalary(5, company);
+                            AddRandomSalary(500000, company);
                             break;
                         case 9:
                             break;
@@ -68,6 +70,8 @@ namespace EmployeeSystem
                             break;
                     }
                 }
+
+                /* catch all exceptions */
                 catch (Exception x) {
                     Console.WriteLine("***--------------ERROR--------------***");
                     Console.WriteLine(x.Message);
@@ -140,9 +144,9 @@ namespace EmployeeSystem
             }
         }
 
+        /* Prints the welcome message */
         static void printWelcome()
         {
-            /* Change this to a method */
             Console.WriteLine("\nWelcome to the Employee System.");
             Console.WriteLine("What would you like to do?");
             Console.WriteLine("1) Add an Hourly Employee\n"
