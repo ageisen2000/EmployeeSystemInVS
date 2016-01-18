@@ -54,12 +54,20 @@ namespace EmployeeSystem
                 }
             }
         }
-
         public void printAll()
         {
             printHourly();
             Console.WriteLine();
             printSalary();
+        }
+        public void InsertAll()
+        {
+            System.Type t = typeof(HourlyEmployee);
+            foreach(Employee e in company)
+            {
+                /* ONLY PRINTS HOURLY EMPLOYEES FOR NOW. REMOVE */
+                if(e.GetType() == t) { e.InsertIntoDB(); }
+            }
         }
     }
 }

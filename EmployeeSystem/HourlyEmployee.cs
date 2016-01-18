@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using Microsoft.SqlServer.Server;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +40,15 @@ namespace EmployeeSystem
             EmployeeNumber = empN;
             DollarsPerHour = dph;
             Hours = hr;
+            try {
+                InsertIntoDB();
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine("ERROR WRITING TO DATABASE");
+                //Console.WriteLine(e.Message);
+            }
+            
         }
 
         public override double calculateMonthlyPay()
@@ -55,6 +68,34 @@ namespace EmployeeSystem
             output = "Hourly Employee: " + employeeNumber + "\t" + "Name: " + 
                      firstName + " " + lastName + " Pay: $" + calculateMonthlyPay();
             return output;
+        }
+
+        [SqlProcedure()]
+        public override void InsertIntoDB()
+        { 
+            var connectionString =
+                "Data Source=(LocalDB)\\MSSQLLocalDB;"+
+                "AttachDbFilename=F:\\Visual Studio DB\\EmployeeDatabase.mdf;" +
+                "Integrated Security=True";
+
+            using (var conn = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand("AddHourly", conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                })
+                {
+                    conn.Open();
+                    //Console.WriteLine("employeeNumber: " + employeeNumber);
+                    command.Parameters.Add(new SqlParameter("@employeeId", employeeNumber));
+                    command.Parameters.Add(new SqlParameter("@firstName", firstName));
+                    command.Parameters.Add(new SqlParameter("@lastName", lastName));
+                    command.Parameters.Add(new SqlParameter("@dollarsPerHour", dollarsperhour));
+                    command.Parameters.Add(new SqlParameter("@hours", hours));
+
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
     }
 }

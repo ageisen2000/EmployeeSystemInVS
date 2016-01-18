@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EmployeeSystem")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CSG Systems, Inc.")]
+[assembly: AssemblyCompany("Nobody")]
 [assembly: AssemblyProduct("EmployeeSystem")]
-[assembly: AssemblyCopyright("Copyright © CSG Systems, Inc. 2016")]
+[assembly: AssemblyCopyright("Copyright Adam Geisen")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

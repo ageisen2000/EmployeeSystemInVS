@@ -54,12 +54,12 @@ namespace EmployeeSystem
                             company.printAll();
                             break;
                         case 6:
-                            /* Adds 5 Random Hourly Employees */
+                            /* Adds Random Hourly Employees */
                             AddRandomHourly(500000, company);
                             break;
                         case 7:
-                            /* Adds 5 Random Salary Employees */
-                            AddRandomSalary(500000, company);
+                            /* Adds Random Salary Employees */
+                            AddRandomSalary(10, company);
                             break;
                         case 9:
                             break;
@@ -91,30 +91,28 @@ namespace EmployeeSystem
            Add a random hourly employee, takes a number of 
            employees to add, as well as the company list 
         */
+        /* Random variable for the 2 employee types */
+
+        static Random _r = new Random();
         static void AddRandomHourly(int count, Company company)
         {
-            Random r = new Random();
             Employee e;
 
             /* set some values for creating the employees */
-            double between;
-            double high = 999999;
-            double low = 100000;
-
-            /* Add a bunch of hourly employees to the company list*/
-            double hours;
-            double moneyPerHour;
+            int empNum = 0;
+            double hours = 0;
+            double moneyPerHour = 0;
 
             /* loop to add them */
             for (int i = 0; i < count; i++)
             {
-                /* these values are only used for the constructor
-                 * and are random every time                        */
-                moneyPerHour = ((6 + i) * r.NextDouble());
-                hours = ((10 + i) * r.NextDouble());
-                between = (r.NextDouble() * (high - low)) + low;
-                /* this makes the new employee */
-                e = new HourlyEmployee("FN" + i, "LN" + i, (int)between, moneyPerHour, hours);
+
+                //empNum = _r.Next(100000, 999999);
+                //moneyPerHour = _r.Next(8, 50);
+                //hours = _r.Next(20, 40);
+                /* create new employee */
+                //e = new HourlyEmployee("FN" + i, "LN" + i, empNum, moneyPerHour, hours);
+                e = new HourlyEmployee("FN" + i, "LN" + i, i, i, i);
                 /* this adds employee to the company */
                 company.addEmployee(e);
             }
@@ -127,19 +125,15 @@ namespace EmployeeSystem
         static void AddRandomSalary(int count, Company company)
         {
             Employee e;
-            Random r = new Random();
+
             /* set some values for creating the employees */
-            double salary;
-            double between;
-            double high = 999999;
-            double low = 100000;
+            double salary = _r.Next(50000,100000);
+            int empId = _r.Next(100000,999999);
 
             /* loop to add them */
             for (int i = 0; i < count; i++)
             {
-                salary = ((40000 + i) * r.NextDouble());
-                between = (r.NextDouble() * (high - low)) + low;
-                e = new SalaryEmployee("FN" + i, "LN" + i, (int)between, salary);
+                e = new SalaryEmployee("FN" + i, "LN" + i, empId, salary);
                 company.addEmployee(e);
             }
         }

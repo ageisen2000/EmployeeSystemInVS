@@ -18,6 +18,7 @@ namespace EmployeeSystem
         /* Abstract methods needing to be overridden */
         public abstract double calculateMonthlyPay();
         public abstract double calculateYearlyPay();
+        public abstract void InsertIntoDB();
 
         /* getters and setters */
         public string FirstName {
@@ -25,6 +26,7 @@ namespace EmployeeSystem
                 return firstName;
             }
             set {
+                
                 if (value.Length > 15)
                 {
                     Console.WriteLine("Invalid First Name. Too long");
@@ -81,5 +83,6 @@ namespace EmployeeSystem
         {
             return EmployeeNumber;
         }
+        
     }
 }

@@ -57,5 +57,9 @@ namespace EmployeeSystem
                 firstName + " " + lastName + " Salary: $" + calculateMonthlyPay();
             return output;
         }
+        public override void InsertIntoDB()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
