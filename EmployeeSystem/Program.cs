@@ -54,12 +54,14 @@ namespace EmployeeSystem
                             company.printAll();
                             break;
                         case 6:
+                            Console.Write("How many?: ");
+
                             /* Adds Random Hourly Employees */
-                            AddRandomHourly(500000, company);
+                            AddRandomHourly(int.Parse(Console.ReadLine()), company);
                             break;
                         case 7:
                             /* Adds Random Salary Employees */
-                            AddRandomSalary(10, company);
+                            AddRandomSalary(int.Parse(Console.ReadLine()), company);
                             break;
                         case 9:
                             break;
